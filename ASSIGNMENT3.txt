@@ -1,0 +1,114 @@
+************************************************************************************************
+3.1
+Q1 What does this algorithm computes?
+   The algorithm computes the difference between the largest and the smallest number in an array. 
+ 
+Q2 What is its basic operation? 
+   It compares the element against all the elements present in the array, and returns the difference between the largest and the smallet number in the array.
+
+Q3 Check the no of times the basic operation is executed depends only on the size of an input or on any other parameter.
+   It depends on the number of elements in the array.
+
+Q4 Set up a sum/recurrence, expressing the number of times the basic operation is executed. 
+   T(n-1) ,n is the size of the array
+
+Q5 What is the efficiency class of the given algorithm? 
+   O(n)
+************************************************************************************************
+3.2
+Q Determine the output of below given algorithm by tracing it for the taking any sample input.
+  It will return the smalllest number in the array
+************************************************************************************************
+3.3
+Q Find the time efficiency class of the following algorithm
+  time efficiency=O(N^2)
+************************************************************************************************
+3.4
+Q What does the above algorithm compute?
+  The algorithm computes the sum of non-negative numbers from 1 to upto n.
+
+Q What is the efficiency class of the given algorithm?
+  n ,the loop will ren n number of times.
+************************************************************************************************
+3.5
+BEGIN
+	DECLARE word AS STRING
+	DECLARE char AS CHAR
+	PROMPT"Enter word " AND STORE IN word
+	PROMPT"Enter character " AND STORE IN char
+	frequency(word,char);
+END
+
+SUB frequency(word,char)
+	DECLARE count AS INTEGER AND SET TO 0
+	FOR i=1 to sizeof(word)
+		IF char=word[i]
+			count=count+1
+		END IF
+	END FOR
+	PRINT"the number of times the character is found in the word is: ",count
+END SUB
+************************************************************************************************
+3.6
+BEGIN
+	DECLARE arr[5] AS INTEGER ARRAY
+	PRINT"Enter 5 numbers"
+	FOR i=0 to 5
+		ACCEPT arr[i]
+		i=i+1
+	END FOR
+	PROMPT"Enter the number for searching"
+	sort(arr)
+	search(arr)
+END
+	
+SUB sort(arr[])
+	FOR index1=0 to 4
+		min_index=index1
+		FOR index2=index1+1 to 4
+			IF arr[index2]<arr[min_index] THEN
+				min_index=index2
+			END IF
+		END FOR
+		temp=arr[min_index]
+		arr[min_index]=arr[index1]
+		arr[i]=temp
+	END FOR
+END SUB
+SUB search(arr[],num)
+	start=0
+	end=sizeof(arr)
+	WHILE(end>=start)
+		SET mid AS (start+end)/2
+		IF arr[mid]=num THEN
+			PRINT"Found at position",mid
+		ELSE IF arr[mid]>num THEN
+			end=mid-1
+		ELSE 
+			start=mid+1
+		END IF
+	END WHILE
+END SUB
+************************************************************************************************		
+3.7
+BEGIN
+	DECLARE str1,str2,msg AS STRING
+	PROMPT"Enter the string" AND STORE IN str1
+	PROMPT"Enter the substring" AND STORE IN str2
+	msg(str1,str2)
+END
+
+SUB msg(str1,str2)
+	FOR i=0 to (str1.LENGTH-str2.LENGTH)
+		FOR j=0 to str2.LENGTH
+			IF str1.CHARAT(i+j) != str2.CHARAT(j)
+				break;
+		END FOR
+		IF j=str2.LENGTH
+			PRINT"Substring found in source string"
+		ELSE
+			PRINT"Substring not found in source string"
+		END IF
+	END FOR
+END SUB
+		

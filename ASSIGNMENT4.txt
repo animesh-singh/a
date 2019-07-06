@@ -1,0 +1,70 @@
+4.1
+************************************************************************************************************
+4.2
+	
+RECORD Employee
+	DECLARE EmpId as INTEGER
+	DECLARE employmentType AS STRING
+END RECORD
+
+BEGIN
+	DECLARE emp AS Employee
+	//leaves variable is used to store number of leaves per month 
+	DECLARE leaves, TotalLeaves AS INTEGER
+	employeeLeaves(emp)
+END	
+
+SUB employeeLeaves(emp)
+	FOR index= 1 to 5
+                PROMPT "Enter the EmployeeId" AND STORE IN emp.EmpId
+                PROMPT "Enter the employmentType" AND STORE IN emp.employmentType
+		index=index+1
+	END FOR
+EXCEPTION
+	WHEN EmpId=null
+		PRINT"Enter valid employee id"
+	WHEN employmentType=null
+		PRINT"Enter valid employement type"
+
+
+ 	FOR index= 1 to 5
+		IF(employmentType=='PERMANENT') THEN
+			leaves=2;
+			TotalLeaves=leaves*12;
+		ELSE IF(employmentType=='CONTRACT') THEN
+			leaves=1;
+			TotalLeaves=leaves*12;
+		END IF
+                PRINT "Employee Id :" , emp.EmpId
+	        PRINT "Total Available Leaves are :", TotalLeaves
+	END FOR
+EXCEPTION 
+	WHEN emplymentType != 'PERMANENT' AND employmentType != 'CONTRACT' THEN
+		PRINT"Invalid employment type"
+SUB END
+************************************************************************************************************
+4.3
+BEGIN
+	DECLARE price,quantity,total_price,tax_rate AS REAL
+	tax_rate=0.56
+	Print "Enter price of your product"
+	ACCEPT price
+	Print "Enter quantity of your product"
+	Accept quantity
+	totalprice(price,quantity)
+EXCEPTION
+	WHEN price=null
+		PRINT"Enter valid price"
+	WHEN quantity=null
+		PRINT"Enter valid quantity"
+END
+
+SUB totalprice(price,quantity)
+	total_price=price*quantity*tax_rate
+	PRINT "Total price of product is: ",total_price
+END SUB
+	
+	Print "Total price of product is":  tc
+END 
+
+

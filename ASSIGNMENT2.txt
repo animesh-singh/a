@@ -1,0 +1,75 @@
+*************************************************************************************************			
+2.1
+
+*************************************************************************************************			
+2.2
+BEGIN
+	DECLARE num,sum AS INTEGER
+	PROMPT"Enter a number" AND STORE IN num
+	getSum(num);
+END
+SUB getSum(num)
+	sum=0
+	WHILE(num!=0)
+	DO
+		sum=sum+num%10
+		num=num/10
+	END WHILE
+	PRINT"The sum of digits is: ",sum;
+END SUB
+*************************************************************************************************			
+2.3
+BEGIN
+	DECLARE num[10] AS ARRAY
+	DECLARE unique_num[10] AS ARRAY
+	unique(num);
+END
+SUB unique(num)
+	FOR i=0 to 9
+		FOR j=0 to 9
+			IF(num[i]==num[j]) THEN
+			break;
+		IF(i==j) THEN
+			unique_num[i]=nu
+			PRINT"Unique numbers are ",num[i]
+		END IF
+	END FOR
+END SUB
+*************************************************************************************************			
+2.4
+RECORD Employee
+	DECLARE EmpId as INTEGER
+	DECLARE employmentType AS STRING
+END RECORD
+
+BEGIN
+	DECLARE emp AS Employee
+	//leaves variable is used to store number of leaves per month
+	DECLARE leaves, TotalLeaves AS INTEGER
+	employeeLeaves(emp)
+END	
+
+SUB employeeLeaves(emp)
+	FOR index= 1 to 5
+                PROMPT "Enter the EmployeeId" AND STORE IN emp.EmpId
+                PROMPT "Enter the employmentType" AND STORE IN emp.employmentType
+		index=index+1
+	END FOR
+
+ 	FOR index= 1 to 5
+		IF(employmentType=='PERMANENT') THEN
+			leaves=2;
+			TotalLeaves=leaves*12;
+		ELSE IF(employmentType=='CONTRACT') THEN
+			leaves=1;
+			TotalLeaves=leaves*12;
+		END IF
+                PRINT "Employee Id :" , emp.EmpId
+	        PRINT "Total Available Leaves are :", TotalLeaves
+	END FOR
+SUB END
+
+			
+	
+	 
+	

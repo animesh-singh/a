@@ -1,0 +1,167 @@
+************************************************************************************************
+1.1
+BEGIN
+	DECLARE uid,last_month_reading,current_month_reading,unit_consumed,netamt AS INTEGER
+	DECLARE user_name AS STRING
+	fixed_charge=100
+	userbill(last_month_reading,current_month_reading);	 	
+END
+
+SUB userbill(last_month_reading,current_month_reading)
+	PROMPT "Enter User ID" AND STORE IN uid
+	PROMPT "Enter User Name" AND STORE IN user_name
+	PROMPT "Enter last month reading" AND STORE IN last_month_reading
+	PROMPT "Enter current month" AND STORE IN current_month_reading
+	unit_consumed=(last_month_reading-current_month_reading)
+	netamt=unit_consumed*1.15+fixed_charge
+	PRINT "User ID:",uid
+	PRINT "User Name:",user_name
+	PRINT "Unit Consumed:",unit_consumed
+	PRINT "Net Amount:",netamt
+END SUB
+*************************************************************************************************
+1.2
+BEGIN
+	DECLARE exp AS INTEGER
+	PRINT"Years of Experience: "
+	ACCEPT exp
+	tagcolor(exp);
+END
+SUB tagcolor(exp)
+	IF(0<=exp<3) THEN
+		DISPLAY "Tag Color: Blue"
+	
+	IF(3<=exp<5) THEN
+		DISPLAY "Tag Color: Grey"
+
+	IF(5<=exp<=10) THEN
+		DISPLAY "Tag Color: Yellow"
+
+	IF(exp>10) THEN
+		DISPLAY "Tag Color: Red"
+	END IF
+END SUB
+*************************************************************************************************
+1.3
+BEGIN
+	DECLARE n,num as INTEGER
+	num1=0
+	num2=1
+	PROMPT"Enter N" AND STORE IN n
+	series(num);
+END
+
+SUB series(num)
+	PRINT num1
+	PRINT num2
+	FOR index=1 to N-2
+		num=num1+num2
+		PRINT num
+		num1=num2
+		num2=num
+		index=index+1
+	END FOR
+END SUB
+*************************************************************************************************
+1.4
+BEGIN
+	DECLARE num AS INTEGER
+	PROMPT"Enter Number" AND STORE IN num
+	armstrong(num);
+END
+
+SUB armstrong(num)
+	WHILE(num!=0)
+	DO
+		n=num%10
+		sum=n*n*n
+		num=num/10
+	END WHILE
+
+	IF(num=sum) THEN
+		PRINT"Number is an Armstrong number"
+	ELSE
+		PRINT"Number is not an Armstrong number"
+	END IF
+END SUB
+*************************************************************************************************
+1.5
+BEGIN 
+	DECLARE num,last_digit,dec_value,base_value AS INTEGER
+	base=1
+	dec_value=0
+	binarytodec(num);
+END
+
+SUB binarytodec(num)
+	WHILE(num!=0)
+	DO
+		last_digit=num%10	
+		num=num/10
+		dec_value=dec_value+last_digit*base_value
+		base=base*2
+	END WHILE
+	PRINT dec_value
+END SUB
+*************************************************************************************************		
+1.6
+BEGIN
+	DECLAERE num[10] AS ARRAY
+	DECLARE smallest_num AS INTEGER
+	DECLARE even,odd AS INTEGER
+	PRINT "Enter 10 numbers"
+	FOR index=0 to 9
+		ACCEPT num[index]
+		index=index+1
+	END FOR
+	smallestnum(num);
+	oddeven();
+END
+
+SUB smallestnum(num)
+	FOR index=0 to 9
+		IF (num[index]>num[index+1]) THEN
+			smallest_num=num[index]
+			index=index+1
+		ELSE
+			smallest_num=num[index+1]
+			index=index+1
+		END IF
+	END FOR
+	PRINT"The smallest number is:",smallest_num
+END SUB
+	
+SUB oddeven(num)	
+	FOR index=0 to 9
+		IF(num[index]%2==0) THEN
+			FOR i=0 to 9
+				even[i]=num[index]
+			END FOR
+		ELSE
+			FOR i=0 to 9
+				odd[i]=num[index]
+			END FOR
+		END IF
+	END FOR
+	
+	FOR index=0 to 9
+		PRINT"Even numbers are:"even[i]
+		PRINT"Odd numbers are:"odd[i]
+	END FOR
+END SUB 
+*************************************************************************************************			
+1.7
+BEGIN
+	DECLARE price,total_price,tax_rate AS INTEGER
+	PRINT"Enter price of your product"
+	ACCEPT price
+	tax_rate=0.56
+	netamt(price,tax_rate);
+END
+
+SUB netamt(price,tax_rate)	
+	tax_rate=0.56
+	total_price=price*tax_rate
+	PRINT"Total price of product is: ",total_price
+END SUB
+*************************************************************************************************			
